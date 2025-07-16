@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Histórico Anual do Tanque - AquaSense Pro</title>
+    <link rel="stylesheet" href="style-historico.css"> <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Histórico Anual - Parâmetros da Qualidade da Água</h1>
+        <p>Análise sazonal e sugestões de manejo</p>
+        <div class="header-controls">
+            <button id="themeToggleButton">Modo Escuro</button>
+            <a href="painel_controle.html" class="dashboard-button">← Voltar ao Painel de Controle</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="filter-controls">
+            <select id="tanqueSelect">
+                <!-- Opções serão preenchidas dinamicamente pelo JavaScript -->
+                <option value="">Carregando tanques...</option> 
+            </select>
+           
+
+            <select id="parametroSelect">
+                <option value="condutividade">Condutividade</option>
+                <option value="oxigenio">Oxigênio</option>
+                <option value="temperatura">Temperatura</option>
+                <option value="ph">pH</option>
+            </select>
+
+            <button id="btnCarregar">Ver Histórico Anual</button>
+
+            <button id="btnExportPdf" class="export-button" disabled>
+                <i class="fas fa-file-pdf"></i> Exportar PDF
+            </button>
+        </div>
+
+        <div class="chart-section">
+            <canvas id="graficoAnual" height="120"></canvas>
+        </div>
+        
+        <div id="sugestaoManejo" class="sugestao">
+            <p>Selecione um tanque e um parâmetro para visualizar o histórico anual e obter sugestões de manejo.</p>
+        </div>
+    </main>
+
+    <footer>
+       <p>&copy; 2025 AquaSense - Desenvolvido para SENAI</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.js"></script>
+    <script src="script-historico.js"></script> </body>
+    <!-- VLibras Plugin -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+</html>

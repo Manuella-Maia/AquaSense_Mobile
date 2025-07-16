@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaSense Pro - Detalhes do Tanque</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Detalhes do Tanque: <span id="tankName">Carregando...</span></h1>
+        <div class="header-controls">
+            <button id="themeToggleButton">Modo Escuro</button>
+            <a id="backButton" href="condutividade.html" class="dashboard-button">&larr; Voltar</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="tank-details-overview">
+            <h2>Parâmetros Atuais</h2>
+            <div class="parameters-grid">
+                <div class="parameter-card" id="cardCondutividade">
+                    <h3>Condutividade Elétrica (EC)</h3>
+                    <p class="parameter-value" id="valorCondutividade">--</p>
+                    <div class="status-indicator" id="statusCondutividade"></div>
+                    <p class="status-text" id="textoStatusCondutividade">Aguardando dados...</p>
+                </div>
+                </div>
+        </section>
+
+        <section class="alerts-section">
+            <h2>Alertas Específicos do Tanque</h2>
+            <div id="listaAlertasTanque" class="alert-list">
+                <p class="no-alerts">Nenhum alerta ativo para este tanque.</p>
+            </div>
+        </section>
+
+        <section class="historical-data">
+            <h2>Histórico de Condutividade</h2>
+            <div class="chart-container">
+                <canvas id="condutividadeChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+       <p>&copy; 2025 AquaSense - Desenvolvido para SENAI</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="simulados.js"></script>
+    <script src="tanque_script.js"></script>
+</body>
+</html>

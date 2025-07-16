@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AquaSense - Painel de Controle</title>
+
+  <!-- FontAwesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+  />
+
+  <link rel="stylesheet" href="das_sstyle.css" />
+</head>
+<body>
+  <header>
+     <div class="logo-container">
+<img id="mainLogo" src="logo_teste3.png" alt="Logo AquaSense Pro" class="logo" />
+</div>
+
+    <h1>Painel de Controle</h1>
+    <p style="color:#648c9c;">Bem Vindo!</p>
+    <div class="header-controls">
+      <button id="btnRefresh" title="Atualizar Dados">
+        <i class="fas fa-sync-alt"></i> Atualizar
+      </button>
+
+      <select id="filterTanque" aria-label="Filtrar Tanque">
+        <option value="all">Todos os Tanques</option>
+      </select>
+
+      <select id="filterParametro" aria-label="Filtrar Parâmetro">
+        <option value="all">Todos os Parâmetros</option>
+        <option value="condutividade">Condutividade</option>
+        <option value="ph">pH</option>
+        <option value="oxigenio">Oxigênio</option>
+        <option value="temperatura">Temperatura</option>
+      </select>
+
+       <button id="btnToggleVoice" title="Ativar/Desativar Alertas por Voz">
+                <i class="fas fa-volume-up"></i> Voz: ON
+        </button>
+
+      <button id="btnToggleDark" title="Alternar Modo Escuro">
+        <i class="fas fa-moon"></i>
+      </button>
+       <a href="index.html" class="button">Sair <i class="fas fa-sign-out-alt"></i></a>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Visão Geral dos Tanques</h2>
+      <div id="tankList" class="tank-grid">
+        <p>Carregando dados dos tanques...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 AquaSense - Desenvolvido para SENAI</p>
+  </footer>
+
+  <script src="das_script.js"></script>
+  <!-- VLibras Plugin -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+</body>
+</html>

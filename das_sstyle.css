@@ -1,0 +1,452 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  color: #222;
+  margin: 0;
+  /* padding: 0 20px 40px; */
+  padding: 0 20px 0;
+  transition: background-color 0.3s, color 0.3s;
+  
+  background-image: url('2.png');
+  background-size: cover; 
+  background-position: center;
+  background-attachment: fixed; 
+  min-height: 100vh; /* Garante que o body ocupe no mínimo 100% da altura da viewport */
+  display: flex; /* Habilita flexbox no body */
+  flex-direction: column;
+
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #eee;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('2.png');
+}
+
+header {
+  background-color:#c1dce6;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  margin-bottom: 30px;
+  border-radius: 0 0 12px 12px;
+  position: relative;
+}
+
+header p {
+  margin: 8px 0 0;
+  font-weight: 300;
+}
+
+.header-controls {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Estilos para botões, selects e o novo link de "Sair" no header */
+.header-controls button,
+.header-controls select,
+.header-controls .button { /* Adicionado .button para estilizar o link */
+  background: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px; /* Ajustado para corresponder ao admin_dashboard.css */
+  font-size: 15px; /* Ajustado para corresponder ao admin_dashboard.css */
+  color: #005a9e; /* Cor principal para o texto do botão (modo claro) */
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 119, 204, 0.3);
+  transition: background-color 0.25s, color 0.25s, transform 0.2s; /* Adicionado transform para hover */
+  text-decoration: none; /* Remove sublinhado de links */
+  display: inline-flex; /* Permite alinhar ícone e texto */
+  align-items: center; /* Alinha verticalmente ícone e texto */
+  gap: 8px; /* Espaço entre ícone e texto */
+  font-weight: 600; /* Negrito */
+}
+
+.header-controls button:hover,
+.header-controls select:hover,
+.header-controls .button:hover { /* Adicionado .button para estilizar o link no hover */
+  background-color: #d0e5fb; /* Cor de hover (modo claro) */
+  transform: translateY(-1px); /* Efeito de "levantar" no hover */
+}
+
+body.dark-mode header {
+  background: linear-gradient(90deg, #222, #111);
+  color: #ddd;
+  box-shadow: none;
+}
+
+body.dark-mode .header-controls button,
+body.dark-mode .header-controls select,
+body.dark-mode .header-controls .button { /* Adicionado .button para estilizar o link no modo escuro */
+  background: #333;
+  color: #ccc;
+  box-shadow: none;
+}
+
+body.dark-mode .header-controls button:hover,
+body.dark-mode .header-controls select:hover,
+body.dark-mode .header-controls .button:hover { /* Adicionado .button para estilizar o link no hover do modo escuro */
+  background-color: #444;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  color : #4274a6;
+}
+
+h2 {
+  font-weight: 600;
+  color: #ffffff; /* branco para alto contraste */
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgba(255,255,255,0.4); /* linha mais sutil porém visível */
+  padding-bottom: 8px;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6); /* destaque sobre imagem */
+}
+body.dark-mode h2 {
+  color: #aad4ff;
+  border-color: #3399ff;
+}
+
+.tank-grid {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 25px; /* Espaço entre os tanques */
+  flex-wrap: nowrap; /* Mantém todos em uma única linha */
+  overflow-x: auto; /* Permite rolagem horizontal se faltar espaço */
+  padding-bottom: 15px; /* Espaço extra na parte de baixo */
+}
+
+.tank-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow:
+    0 6px 15px rgba(0, 0, 0, 0.1),
+    inset 0 -4px 6px rgba(0, 119, 204, 0.1);
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  position: relative;
+  
+  min-width: 280px;
+  max-width: 300px;
+
+}
+
+.tank-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.15),
+    inset 0 -6px 10px rgba(0, 119, 204, 0.15);
+}
+
+body.dark-mode .tank-card {
+  background: #222;
+  box-shadow:
+    0 6px 15px rgba(0,0,0,0.8),
+    inset 0 -4px 6px rgba(0, 102, 204, 0.2);
+}
+
+.tank-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: #005a9e;
+}
+
+body.dark-mode .tank-card h3 {
+  color: #aad4ff;
+}
+
+.tank-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 18px;
+}
+
+body.dark-mode .tank-card p {
+  color: #ccc;
+}
+
+.parameter-dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: space-between;
+}
+
+.parameter-mini {
+  background-color: #e7f1fb;
+  border-radius: 12px;
+  padding: 14px 18px;
+  flex: 1 1 120px;
+  min-width: 120px;
+  box-shadow: 0 2px 5px rgba(0, 119, 204, 0.12);
+  position: relative;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: #004a80;
+  text-decoration: none;
+}
+
+.parameter-mini:hover {
+  background-color: #d0e5fb;
+}
+
+body.dark-mode .parameter-mini {
+  background-color: #333;
+  color: #aad4ff;
+}
+
+body.dark-mode .parameter-mini:hover {
+  background-color: #445577;
+}
+
+.parameter-mini h4 {
+  font-size: 13px;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  flex: 0 0 100px;
+}
+
+.value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #003f6d;
+  flex-grow: 1;
+}
+
+body.dark-mode .value {
+  color: #88bbff;
+}
+
+.status-indicator {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(0,0,0,0.12);
+  flex-shrink: 0;
+}
+
+.green {
+  background-color: #2ecc71;
+  box-shadow: 0 0 10px #27ae60;
+}
+
+.yellow {
+  background-color: #f1c40f;
+  box-shadow: 0 0 10px #f39c12;
+}
+
+.red {
+  background-color: #e74c3c;
+  box-shadow: 0 0 10px #c0392b;
+}
+
+footer {
+    /*background-color: #34495e;*/
+    /*background-color:#79a8bd; */
+      background-color: rgba(52, 73, 94, 0.3); 
+    color: #ecf0f1;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+    font-size: 0.9em;
+    /*border-top: 1px solid #4a627d;*/
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode footer {
+  color: #aaa;
+  border-color: #333;
+}
+
+/* Ícones de parâmetro */
+.param-icon {
+  font-size: 18px;
+  width: 20px;
+  color: #005a9e;
+  flex-shrink: 0;
+}
+
+body.dark-mode .param-icon {
+  color: #aad4ff;
+}
+
+.btn-historico {
+  margin-top: 10px;
+  padding: 8px 14px;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-historico:hover {
+  background-color: #005bb5;
+}
+
+.card-actions {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.logo-container {
+position: absolute;
+top: 15px;
+left: 20px;
+}
+
+.logo {
+height: 140px; /* aumente conforme desejar: 60px ~ 80px */
+opacity: 0.95;
+
+transition: transform 0.3s ease;
+}
+
+.logo:hover {
+transform: scale(1.05);
+}
+
+
+/* Animação de botão atualizar */
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+button.loading i {
+  animation: spin 1s linear infinite;
+}
+/* Selects e botões responsivos */
+@media (max-width: 480px) {
+    body {
+        padding: 0 10px; /* Reduz o padding lateral para telas muito pequenas */
+    }
+
+    header {
+        padding: 15px 10px; /* Ajusta o padding do header */
+        /* Centraliza o conteúdo principal do header */
+        display: flex;
+        flex-direction: column; /* Empilha os itens do header */
+        align-items: center; /* Centraliza horizontalmente */
+        gap: 8px; /* Espaço menor entre os elementos do header */
+    }
+
+    .logo-container {
+        position: static; /* Remove a posição absoluta para que a logo flua */
+        margin-bottom: 5px; /* Adiciona um pequeno espaço abaixo da logo */
+        left: unset; /* Remove a propriedade left definida para telas maiores */
+        top: unset; /* Remove a propriedade top definida para telas maiores */
+    }
+
+    .logo {
+        height: 80px; /* Aumenta a logo para 80px em telas pequenas, estava 50px */
+        width: auto; /* Permite que a largura seja automática para manter a proporção */
+    }
+
+    h1 {
+        font-size: 1.8em; /* Reduz o tamanho do título principal */
+        text-align: center; /* Garante que o título esteja centralizado */
+    }
+
+    header p {
+        font-size: 1em; /* Ajusta o tamanho da fonte da mensagem de boas-vindas */
+        margin: 5px 0 0; /* Ajusta margens para fluir melhor */
+        text-align: center;
+    }
+
+    .header-controls {
+        flex-direction: column; /* Botões e selects um abaixo do outro */
+        gap: 8px; /* Menos espaçamento entre os controles */
+        margin-top: 10px;
+        width: 100%; /* Ocupa a largura total disponível */
+    }
+
+    .header-controls button,
+    .header-controls select,
+    .header-controls .button { 
+        width: 100%; /* Ocupa a largura total */
+        font-size: 14px; /* Ajusta o tamanho da fonte dos botões */
+        padding: 10px; /* Ajusta o padding dos botões */
+        max-width: unset; /* Remove o limite de largura para preencher 100% */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Reduz o tamanho dos títulos de seção */
+        margin-bottom: 15px;
+    }
+
+    .tank-grid {
+        flex-direction: column; /* Tanques um abaixo do outro */
+        gap: 20px;
+        align-items: center; /* Centraliza os cartões na coluna */
+        flex-wrap: wrap; /* Garante quebras de linha se houver múltiplos itens */
+    }
+
+    .tank-card {
+        width: 100%; /* Ocupa a largura total (respeitando padding do body) */
+        max-width: 350px; /* Define um limite máximo para o cartão em celulares */
+        min-width: unset; /* Remove min-width para mais flexibilidade */
+        margin: 0 auto; /* Centraliza cada cartão individualmente */
+    }
+
+    .parameter-dashboard {
+        justify-content: center; /* Centraliza os parâmetros dentro do card */
+        gap: 10px; /* Menor gap entre os parâmetros */
+    }
+
+    .parameter-mini {
+        flex: 1 1 100%; /* Um item por linha */
+        flex-direction: row; /* Alinha ícone, título e valor em linha para economizar altura */
+        justify-content: space-between; /* Espaça os elementos */
+        align-items: center;
+        padding: 10px 12px;
+        max-width: unset; /* Permite ocupar a largura total do tank-card */
+        min-width: unset; /* Remove o min-width fixo */
+    }
+
+    .parameter-mini h4 {
+        font-size: 11px; /* Fonte menor para o título do parâmetro */
+        flex: unset; /* Remove flex-basis fixo */
+        text-align: left; /* Alinha o texto à esquerda */
+    }
+
+    .value {
+        font-size: 15px; /* Fonte menor para o valor do parâmetro */
+        flex-grow: unset; /* Remove flex-grow */
+    }
+
+    .param-icon {
+        font-size: 16px; /* Ajusta o tamanho do ícone */
+        width: auto; /* Permite largura automática */
+        flex-shrink: 0;
+    }
+
+    .status-indicator {
+        width: 12px; /* Reduz o tamanho do indicador de status */
+        height: 12px;
+    }
+}

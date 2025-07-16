@@ -1,0 +1,862 @@
+/* Variáveis CSS para Cores (replicadas do seu style.css principal para consistência) */
+:root {
+    /* Cores do Modo Claro */
+    --bg-color-light: #f0f4f8;
+    --text-color-light: #222;
+    --header-bg-start-light: #0077cc;
+    --header-bg-end-light: #005fa3;
+    --header-shadow-light: rgba(0,0,0,0.15);
+    --h1-color-light: #ffffff;
+    --h2-color-light: #004a80;
+    --section-bg-light: #ffffff;
+    --section-shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --button-bg-light: #005a9e; /* Cor principal dos botões */
+    --button-hover-bg-light-blue: #d0e5fb; /*hover claro*/ 
+    --button-hover-bg-light: #004a80; /* hover dos botões escuro */
+    --button-text-light: white;
+    --footer-color-light: #ecf0f1;
+    --footer-border-light: rgba(255, 255, 255, 0.2);
+    --input-border-light: #ccc;
+    --input-focus-border-light: #0077cc;
+    --table-header-bg-light: #e0e0e0;
+    --table-border-light: #ddd;
+    --table-row-hover-light: #f5f5f5;
+    --active-status-color: #28a745; /* Verde para ativo */
+    --inactive-status-color: #dc3545; /* Vermelho para inativo */
+    --danger-button-bg-light: #dc3545;
+    --danger-button-hover-light: #c82333;
+    --secondary-button-bg-light: #6c757d;
+    --secondary-button-hover-light: #5a6268;
+    --modal-bg-light: rgba(0, 0, 0, 0.5);
+    --modal-content-bg-light: white;
+    --modal-content-shadow-light: 0 5px 15px rgba(0, 0, 0, 0.3);
+    --close-button-color-light: #aaa;
+    --close-button-hover-color-light: black;
+    --error-message-color-light: #e74c3c;
+    --no-data-message-color-light: #777;
+
+
+    /* Cores do Modo Escuro */
+    --bg-color-dark: #121212;
+    --text-color-dark: #eee;
+    --header-bg-start-dark: #222;
+    --header-bg-end-dark: #111;
+    --header-shadow-dark: none;
+    --h1-color-dark: #eee;
+    --h2-color-dark: #aad4ff;
+    --section-bg-dark: #1e1e1e;
+    --section-shadow-dark: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --button-bg-dark: #3399ff;
+    --button-hover-bg-dark: #2277cc;
+    --button-text-dark: white;
+    --footer-color-dark: #aaa;
+    --footer-border-dark: #333;
+    --input-border-dark: #555;
+    --input-focus-border-dark: #3399ff;
+    --table-header-bg-dark: #333;
+    --table-border-dark: #444;
+    --table-row-hover-dark: #2a2a2a;
+    --danger-button-bg-dark: #b52b39;
+    --danger-button-hover-dark: #9e2430;
+    --secondary-button-bg-dark: #5a6268;
+    --secondary-button-hover-dark: #4a5054;
+    --modal-bg-dark: rgba(0, 0, 0, 0.7);
+    --modal-content-bg-dark: #2a2a2a;
+    --modal-content-shadow-dark: 0 5px 20px rgba(0, 0, 0, 0.7);
+    --close-button-color-dark: #ccc;
+    --close-button-hover-color-dark: white;
+    --error-message-color-dark: #ff8a80;
+    --no-data-message-color-dark: #999;
+}
+
+/* Base */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    padding: 0 15px;
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('2.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body.dark-mode {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('2.png');
+}
+
+/* Header */
+header {
+    background-color: rgba(52, 73, 94, 0.3);
+    color: var(--h1-color-light);
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px var(--header-shadow-light);
+    margin-bottom: 25px;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode header {
+    color: var(--h1-color-dark);
+    border-color: var(--footer-border-dark);
+}
+
+header h1 {
+    font-size: 2.2em;
+    margin: 0 0 5px 0;
+    color: var(--h1-color-light);
+}
+
+body.dark-mode header h1 {
+    color: var(--h1-color-dark);
+}
+
+header p {
+    font-size: 1.1em;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.header-controls {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Botões no Header (Modo Escuro e Voltar ao Painel Admin) */
+.header-controls .button {
+    background: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 15px;
+    color: var(--button-bg-light); /* Cor principal para o texto do botão */
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 119, 204, 0.3);
+    transition: background-color 0.25s, color 0.25s, transform 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.header-controls .button:hover {
+    background-color: var(--button-hover-bg-light-blue);
+    transform: translateY(-1px);
+}
+
+body.dark-mode .header-controls .button {
+    background: #333;
+    color: var(--button-bg-dark); /* Cor principal para o texto do botão no modo escuro */
+    box-shadow: none;
+}
+
+body.dark-mode .header-controls .button:hover {
+    background-color: var(--button-hover-bg-dark);
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 15px 0;
+    max-width: 1200px;
+    margin: 15px auto;
+    display: flex; /* Usar flexbox para centralizar o conteúdo */
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+}
+
+section {
+    background-color: var(--section-bg-light);
+    border-radius: 12px;
+    box-shadow: var(--section-shadow-light);
+    padding: 25px;
+    width: 100%; /* Ocupa a largura total do main */
+    margin-bottom: 25px; /* Espaçamento entre seções */
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode section {
+    background-color: var(--section-bg-dark);
+    box-shadow: var(--section-shadow-dark);
+}
+
+section h2 {
+    color: var(--h2-color-light);
+    border-bottom: 2px solid var(--h2-color-light);
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+body.dark-mode section h2 {
+    color: var(--h2-color-dark);
+    border-color: var(--h2-color-dark);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Para responsividade */
+    gap: 15px; /* Espaçamento entre itens */
+}
+
+/* Tabela de Tanques */
+.table-container {
+    overflow-x: auto; /* Permite rolagem horizontal em telas pequenas */
+    width: 100%;
+}
+
+#tanksTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 0.95em;
+}
+
+#tanksTable th, #tanksTable td {
+    padding: 12px 15px;
+    border: 1px solid var(--table-border-light);
+    text-align: left;
+}
+
+body.dark-mode #tanksTable th, body.dark-mode #tanksTable td {
+    border-color: var(--table-border-dark);
+}
+
+#tanksTable thead th {
+    background-color: var(--table-header-bg-light);
+    color: var(--text-color-light);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+body.dark-mode #tanksTable thead th {
+    background-color: var(--table-header-bg-dark);
+    color: var(--text-color-dark);
+}
+
+#tanksTable tbody tr:nth-child(even) {
+    background-color: var(--table-row-hover-light); /* Ligeiramente diferente para linhas pares */
+}
+
+#tanksTable tbody tr:hover {
+    background-color: var(--table-row-hover-light);
+}
+
+body.dark-mode #tanksTable tbody tr:nth-child(even) {
+    background-color: var(--table-row-hover-dark);
+}
+
+body.dark-mode #tanksTable tbody tr:hover {
+    background-color: var(--table-row-hover-dark);
+}
+
+/* Status do Tanque na Tabela */
+.tank-status {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.tank-status.active {
+    background-color: #d4edda;
+    color: var(--active-status-color);
+}
+
+.tank-status.inactive {
+    background-color: #f8d7da;
+    color: var(--inactive-status-color);
+}
+
+/* Botões de Ação na Tabela */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.action-buttons .button {
+    padding: 8px 12px;
+    font-size: 0.9em;
+    font-weight: 500;
+    border-radius: 5px;
+    box-shadow: none; /* Remove sombra para botões pequenos */
+}
+
+.action-buttons .button i {
+    margin-right: 5px;
+}
+
+.action-buttons .button.edit-button {
+    background-color: #007bff;
+    color: white;
+}
+.action-buttons .button.edit-button:hover {
+    background-color: #0056b3;
+}
+
+.action-buttons .button.inactivate-button {
+    background-color: var(--danger-button-bg-light);
+    color: white;
+}
+.action-buttons .button.inactivate-button:hover {
+    background-color: var(--danger-button-hover-light);
+}
+
+body.dark-mode .action-buttons .button.edit-button {
+    background-color: #4da6ff;
+}
+body.dark-mode .action-buttons .button.edit-button:hover {
+    background-color: #2a8bff;
+}
+
+body.dark-mode .action-buttons .button.inactivate-button {
+    background-color: var(--danger-button-bg-dark);
+}
+body.dark-mode .action-buttons .button.inactivate-button:hover {
+    background-color: var(--danger-button-hover-dark);
+}
+
+
+/* Mensagens de Carregamento/Sem Dados */
+.loading-message, .no-data-message {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: var(--no-data-message-color-light);
+}
+
+body.dark-mode .loading-message, body.dark-mode .no-data-message {
+    color: var(--no-data-message-color-dark);
+}
+
+
+/* Estilos de Formulário (usados no modal) */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.input-group input[type="text"],
+.input-group input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--input-border-light);
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: var(--section-bg-light);
+    color: var(--text-color-light);
+}
+
+body.dark-mode .input-group input {
+    background-color: #2a2a2a;
+    border-color: var(--input-border-dark);
+    color: var(--text-color-dark);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--input-focus-border-light);
+    box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.2);
+}
+
+body.dark-mode .input-group input:focus {
+    border-color: var(--input-focus-border-dark);
+    box-shadow: 0 0 0 3px rgba(51, 153, 255, 0.3);
+}
+
+.primary-button {
+    background-color: var(--button-bg-light);
+    color: var(--button-text-light);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.3s;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.primary-button:hover {
+    background-color: var(--button-hover-bg-light);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .primary-button {
+    background-color: var(--button-bg-dark);
+    color: var(--button-text-dark);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .primary-button:hover {
+    background-color: var(--button-hover-bg-dark);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.danger-button {
+    background-color: var(--danger-button-bg-light);
+    color: white;
+}
+.danger-button:hover {
+    background-color: var(--danger-button-hover-light);
+}
+body.dark-mode .danger-button {
+    background-color: var(--danger-button-bg-dark);
+}
+body.dark-mode .danger-button:hover {
+    background-color: var(--danger-button-hover-dark);
+}
+
+.secondary-button {
+    background-color: var(--secondary-button-bg-light);
+    color: white;
+}
+.secondary-button:hover {
+    background-color: var(--secondary-button-hover-light);
+}
+body.dark-mode .secondary-button {
+    background-color: var(--secondary-button-bg-dark);
+}
+body.dark-mode .secondary-button:hover {
+    background-color: var(--secondary-button-hover-dark);
+}
+
+
+/* Modals */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fica por cima de tudo */
+    z-index: 1000; /* Z-index alto para ficar acima de outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Habilita scroll se o conteúdo for muito grande */
+    background-color: var(--modal-bg-light); /* Fundo semi-transparente */
+    display: flex; /* Usar flexbox para centralizar o modal-content */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+body.dark-mode .modal {
+    background-color: var(--modal-bg-dark);
+}
+
+.modal-content {
+    background-color: var(--modal-content-bg-light);
+    margin: auto; /* Centraliza */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--modal-content-shadow-light);
+    width: 90%;
+    max-width: 500px; /* Largura máxima para o conteúdo do modal */
+    position: relative;
+    animation: fadeIn 0.3s ease-out; /* Animação de entrada */
+}
+
+body.dark-mode .modal-content {
+    background-color: var(--modal-content-bg-dark);
+    box-shadow: var(--modal-content-shadow-dark);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-button {
+    color: var(--close-button-color-light);
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--close-button-hover-color-light);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+body.dark-mode .close-button {
+    color: var(--close-button-color-dark);
+}
+body.dark-mode .close-button:hover,
+body.dark-mode .close-button:focus {
+    color: var(--close-button-hover-color-dark);
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: var(--h2-color-light);
+    border-bottom: none; /* Remove a borda do h2 no modal */
+}
+
+body.dark-mode .modal-content h2 {
+    color: var(--h2-color-dark);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.error-message {
+    color: var(--error-message-color-light);
+    margin-top: 10px;
+    font-weight: 500;
+    font-size: 0.9em;
+    min-height: 18px; /* Garante que o espaço seja reservado */
+    text-align: center;
+}
+
+body.dark-mode .error-message {
+    color: var(--error-message-color-dark);
+}
+
+/* Footer */
+footer {
+    background-color: rgba(52, 73, 94, 0.3);
+    color: var(--footer-color-light);
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+    font-size: 0.9em;
+    border-top: 1px solid var(--footer-border-light);
+}
+body.dark-mode footer {
+    color: var(--footer-color-dark);
+    border-color: var(--footer-border-dark);
+}
+/* === 🟢 CELULARES PEQUENOS (até 480px) === */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.6em;
+  }
+
+  header p {
+    font-size: 0.85em;
+  }
+
+  .header-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .header-controls .button {
+    width: 100%;
+    font-size: 0.8em;
+    padding: 6px 10px;
+  }
+
+  main {
+    padding: 0 10px;
+    margin: 10px auto;
+  }
+
+  section {
+    padding: 16px;
+  }
+
+  section h2 {
+    font-size: 1.5em;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .section-header .button {
+    width: 100%;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  #tanksTable {
+    min-width: 600px;
+    font-size: 0.85em;
+  }
+
+  #tanksTable th,
+  #tanksTable td {
+    padding: 8px;
+    white-space: nowrap;
+    font-size: 0.85em;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .action-buttons .button {
+    width: auto;
+    padding: 6px 8px;
+    font-size: 0.75em;
+  }
+
+  .modal-content {
+    padding: 16px;
+  }
+
+  .modal-content h2 {
+    font-size: 1.5em;
+    margin-bottom: 16px;
+  }
+
+  .input-group label {
+    font-size: 0.85em;
+  }
+
+  .input-group input {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+
+  .primary-button {
+    padding: 10px 16px;
+    font-size: 0.95em;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal-actions .button {
+    width: 100%;
+  }
+
+  footer {
+    padding: 10px 0;
+    font-size: 0.75em;
+    text-align: center;
+  }
+}
+
+/* === 🟡 CELULARES GRANDES E TABLETS EM RETRATO (481px até 768px) === */
+@media (min-width: 481px) and (max-width: 768px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  header p {
+    font-size: 0.9em;
+  }
+
+  .header-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .header-controls .button {
+    width: auto;
+    min-width: 140px;
+    font-size: 0.85em;
+    padding: 8px 14px;
+  }
+
+  main {
+    padding: 0 12px;
+    margin: 12px auto;
+  }
+
+  section {
+    padding: 20px;
+  }
+
+  section h2 {
+    font-size: 1.6em;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .section-header .button {
+    width: auto;
+    min-width: 140px;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  #tanksTable {
+    min-width: 600px;
+    font-size: 0.9em;
+  }
+
+  #tanksTable th,
+  #tanksTable td {
+    padding: 10px;
+    white-space: nowrap;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .action-buttons .button {
+    width: auto;
+    padding: 6px 10px;
+    font-size: 0.8em;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+
+  .modal-content h2 {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+  }
+
+  .input-group label {
+    font-size: 0.9em;
+  }
+
+  .input-group input {
+    padding: 10px;
+    font-size: 0.95em;
+  }
+
+  .primary-button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .modal-actions .button {
+    width: auto;
+    min-width: 140px;
+  }
+
+  footer {
+    padding: 12px 0;
+    font-size: 0.8em;
+    text-align: center;
+  }
+}
+
+/* === 🔵 TABLETS EM PAISAGEM E TELAS MÉDIAS (769px até 1024px) === */
+@media (min-width: 769px) and (max-width: 1024px) {
+  header h1 {
+    font-size: 2em;
+  }
+
+  header p {
+    font-size: 1em;
+  }
+
+  .header-controls {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .header-controls .button {
+    font-size: 0.95em;
+    padding: 10px 16px;
+  }
+
+  section h2 {
+    font-size: 1.7em;
+  }
+
+  #tanksTable {
+    font-size: 0.95em;
+  }
+
+  #tanksTable th,
+  #tanksTable td {
+    padding: 10px;
+  }
+
+  .primary-button {
+    font-size: 1.05em;
+  }
+
+  .modal-content h2 {
+    font-size: 1.7em;
+  }
+}
+@media (max-width: 768px) {
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #tanksTable {
+    width: 100%; /* ✅ Agora se ajusta à tela */
+    border-collapse: collapse;
+  }
+
+  #tanksTable th,
+  #tanksTable td {
+    white-space: nowrap;
+    font-size: 0.9em;
+    padding: 8px 10px;
+  }
+}

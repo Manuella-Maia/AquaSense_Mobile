@@ -1,0 +1,442 @@
+/* Definição de Cores (Variáveis CSS) */
+:root {
+    /* Cores do Modo Claro */
+    --bg-color-light: #f0f4f8;
+    --text-color-light: #222;
+    --header-bg-start-light: #0077cc;
+    --header-bg-end-light: #005fa3;
+    --header-shadow-light: rgba(0,0,0,0.15);
+    --main-bg-light: #ffffff;
+    --main-shadow-light: 0 6px 15px rgba(0, 0, 0, 0.07);
+    --control-border-light: #1e90ff;
+    --control-bg-light: white;
+    --control-text-light: #333;
+
+    /* Variáveis dos botões globais (replicadas do style.css principal) */
+    --button-color-light: #005a9e; /* Cor do texto do botão */
+    --button-hover-bg-light: #d0e5fb; /* Cor de fundo no hover */
+    --button-shadow-light: rgba(0, 119, 204, 0.3); /* Sombra do botão */
+
+    /* Variáveis para o botão "Ver Histórico Anual" (mantém o estilo próprio) */
+    --specific-button-bg-light: #1e90ff;
+    --specific-button-hover-bg-light: #005bb5;
+    --specific-button-focus-shadow-light: #005bb5aa;
+
+    --chart-border-color-light: #0077cc;
+    --chart-bg-color-light: rgba(0,119,204,0.1);
+    --sugestion-bg-light: #e6f2ff;
+    --sugestion-border-light: #1e90ff;
+    --sugestion-text-light: #004a99;
+    --sugestion-shadow-light: rgba(30, 144, 255, 0.15);
+    
+    --footer-bg-light: #34495e;
+    --footer-color-light: #ecf0f1;
+    --footer-border-light: #4a627d;
+
+    /* Cores do Modo Escuro */
+    --bg-color-dark: #1a1a1a;
+    --text-color-dark: #e0e0e0;
+    --header-bg-start-dark: #333;
+    --header-bg-end-dark: #222;
+    --header-shadow-dark: none;
+    --main-bg-dark: #2c2c2c;
+    --main-shadow-dark: 0 6px 20px rgba(0, 0, 0, 0.4);
+    --control-border-dark: #555;
+    --control-bg-dark: #3a3a3a;
+    --control-text-dark: #e0e0e0;
+
+    /* Variáveis dos botões globais no modo escuro (replicadas do style.css principal) */
+    --button-color-dark: #ccc;
+    --button-hover-bg-dark: #444;
+    --button-shadow-dark: none; /* Em modo escuro, a sombra do botão global é removida */
+
+    /* Variáveis para o botão "Ver Histórico Anual" no modo escuro */
+    --specific-button-bg-dark: #005bb5;
+    --specific-button-hover-bg-dark: #004a99;
+    --specific-button-focus-shadow-dark: #005bb5aa;
+
+    --chart-border-color-dark: #66ccff;
+    --chart-bg-color-dark: rgba(102, 204, 255, 0.1);
+    --sugestion-bg-dark: #333d4a;
+    --sugestion-border-dark: #66ccff;
+    --sugestion-text-dark: #a0d8ff;
+    --sugestion-shadow-dark: rgba(0, 0, 0, 0.3);
+    
+    --footer-bg-dark: #121212;
+    --footer-color-dark: #aaa;
+    --footer-border-dark: #333;
+}
+
+/* Base */
+html, body {
+    height: 100%; /* Garante que HTML e Body ocupem toda a altura da viewport */
+    margin: 0; /* Remove margens padrão do navegador */
+    padding: 0; /* Remove paddings padrão do navegador */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-color-light);
+    color: var(--text-color-light);
+    margin: 0;
+    padding: 0 15px; /* Padding lateral consistente */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+
+    background-image: url('2.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body.dark-mode {
+    background-color: var(--bg-color-dark); /* Usando variável */
+    color: var(--text-color-dark); /* Usando variável */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('2.png');
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 25px 10px 15px 10px;
+    background-color: rgba(52, 73, 94, 0.3);
+    color: white; /* Mantido fixo para texto do header, ou pode usar var(--h1-color-light) */
+    box-shadow: 0 4px 10px var(--header-shadow-light);
+    border-radius: 0 0 10px 10px; /* Mais arredondado */
+    position: relative; /* Para posicionar o botão de tema */
+    margin-bottom: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode header {
+    color: var(--h1-color-dark); /* Assumindo que você tem essa variável para o H1 do header */
+    border-color: var(--footer-border-dark); /* Reutilizando variável de cor de borda */
+    box-shadow: var(--header-shadow-dark);
+}
+
+header h1 {
+    margin: 0 0 5px 0;
+    font-size: 2.2rem; /* Aumentado */
+    font-weight: 700;
+}
+
+header p {
+    margin: 0;
+    font-weight: 300;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Main Content */
+main {
+    flex-grow: 1;
+    max-width: 900px; /* Aumentado um pouco a largura máxima */
+    margin: 20px auto 30px auto; /* Ajuste na margem superior */
+    background: var(--main-bg-light);
+    padding: 25px 30px; /* Aumentado o padding */
+    border-radius: 12px; /* Mais arredondado */
+    box-shadow: var(--main-shadow-light);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode main {
+    background: var(--main-bg-dark);
+    box-shadow: var(--main-shadow-dark);
+}
+
+/* Header Controls (Theme Toggle & Dashboard Button) */
+.header-controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px; /* Espaço para baixo do título */
+    flex-wrap: wrap;
+}
+
+/* Estilos para botões globais (Modo Escuro e Voltar ao Dashboard) */
+/* Aplicando o mesmo estilo dos botões do dashboard */
+.header-controls #themeToggleButton,
+.header-controls .dashboard-button { /* Seletores mais específicos para evitar conflitos */
+    background: white; /* Cor de fundo padrão dos botões globais */
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 15px;
+    color: var(--button-color-light); /* Cor do texto dos botões globais */
+    cursor: pointer;
+    box-shadow: 0 2px 6px var(--button-shadow-light); /* Sombra dos botões globais */
+    transition: background-color 0.25s, color 0.25s, transform 0.2s;
+    text-decoration: none; /* Para links */
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.header-controls #themeToggleButton:hover,
+.header-controls .dashboard-button:hover {
+    background-color: var(--button-hover-bg-light); /* Cor de hover dos botões globais */
+    transform: translateY(-1px);
+}
+
+body.dark-mode .header-controls #themeToggleButton,
+body.dark-mode .header-controls .dashboard-button {
+    background: #333; /* Cor de fundo dos botões globais no modo escuro */
+    color: var(--button-color-dark); /* Cor do texto dos botões globais no modo escuro */
+    box-shadow: var(--button-shadow-dark); /* Sombra dos botões globais no modo escuro */
+}
+
+body.dark-mode .header-controls #themeToggleButton:hover,
+body.dark-mode .header-controls .dashboard-button:hover {
+    background-color: var(--button-hover-bg-dark); /* Cor de hover dos botões globais no modo escuro */
+}
+
+
+/* Filter Controls (Selects & Button inside Main) */
+.filter-controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 25px; /* Aumentado para o gráfico */
+    flex-wrap: wrap;
+}
+
+select, .filter-controls button { /* Adicionei a classe para o botão Ver Histórico Anual */
+    font-size: 1.05rem; /* Ligeiramente maior */
+    padding: 10px 18px; /* Padding maior */
+    border: 2px solid var(--control-border-light);
+    border-radius: 8px; /* Mais arredondado */
+    background-color: var(--control-bg-light);
+    color: var(--control-text-light);
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+body.dark-mode select, body.dark-mode .filter-controls button {
+    background-color: var(--control-bg-dark);
+    color: var(--control-text-dark);
+    border-color: var(--control-border-dark);
+}
+
+select:focus, .filter-controls button:focus {
+    outline: none;
+    border-color: var(--specific-button-hover-bg-light); /* Usando a variável específica */
+    box-shadow: 0 0 8px var(--specific-button-focus-shadow-light); /* Usando a variável específica */
+}
+
+body.dark-mode select:focus, body.dark-mode .filter-controls button:focus {
+    border-color: var(--specific-button-hover-bg-dark);
+    box-shadow: 0 0 8px var(--specific-button-focus-shadow-dark);
+}
+
+/* Estilo para o botão "Ver Histórico Anual" (específico) */
+.filter-controls button {
+    background-color: var(--specific-button-bg-light); /* Usando variável específica */
+    color: white;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* Sombra para botões */
+}
+
+body.dark-mode .filter-controls button {
+    background-color: var(--specific-button-bg-dark); /* Usando variável específica */
+    color: var(--text-color-dark); /* Pode ser text-color-dark ou a cor de texto do botão do modo escuro */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.filter-controls button:hover {
+    background-color: var(--specific-button-hover-bg-light); /* Usando variável específica */
+    transform: translateY(-1px); /* Pequena elevação */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .filter-controls button:hover {
+    background-color: var(--specific-button-hover-bg-dark); /* Usando variável específica */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Chart Container */
+.chart-section {
+    padding: 15px; /* Padding interno para o gráfico */
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 25px; /* Espaço entre gráfico e sugestão */
+}
+
+body.dark-mode .chart-section {
+    background-color: #3a3a3a;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+canvas#graficoAnual {
+    max-width: 100%;
+    height: 380px !important; /* Aumentado a altura do gráfico */
+}
+
+/* Sugestion Box */
+.sugestao {
+    margin-top: 25px; /* Mantido, mas já tem padding do main */
+    background: var(--sugestion-bg-light);
+    border-left: 6px solid var(--sugestion-border-light); /* Borda mais espessa */
+    padding: 20px 25px; /* Padding aumentado */
+    font-size: 1.05rem;
+    color: var(--sugestion-text-light);
+    border-radius: 6px; /* Mais arredondado */
+    box-shadow: 0 3px 10px var(--sugestion-shadow-light); /* Sombra mais proeminente */
+    max-width: 100%; /* Garante que ocupe a largura total do main */
+    font-weight: 500; /* Ligeiramente mais leve */
+    line-height: 1.5; /* Melhor legibilidade */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode .sugestao {
+    background: var(--sugestion-bg-dark);
+    border-color: var(--sugestion-border-dark);
+    color: var(--sugestion-text-dark);
+    box-shadow: var(--sugestion-shadow-dark);
+}
+
+.sugestao strong {
+    font-weight: 700; /* Mais forte dentro da sugestão */
+}
+
+/* Footer */
+footer {
+    background-color: rgba(52, 73, 94, 0.3);
+    color: var(--footer-color-light); /* Usando variável */
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+    font-size: 0.9em;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Mantendo a borda */
+}
+
+body.dark-mode footer {
+    color: var(--footer-color-dark); /* Usando variável */
+    border-color: var(--footer-border-dark); /* Usando variável */
+}
+
+/* butao exportar */
+.filter-controls .export-button {
+    background-color: rgb(32, 143, 32); /* Verde padrão para PDF */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Para separar do botão "Ver Histórico Anual" */
+}
+
+.filter-controls .export-button:hover:not(:disabled) {
+    background-color: rgb(25, 110, 25); /* Verde mais escuro no hover */
+}
+
+.filter-controls .export-button:disabled {
+    background-color: #99a2aa; /* Cor para botão desabilitado */
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Estilo do botão de exportar no MODO ESCURO */
+body.dark-mode .filter-controls .export-button {
+    background-color: #28a745; /* Um verde mais vibrante para dark mode */
+    color: #f0f0f0; /* Um branco levemente acinzentado */
+    border: 1px solid #28a745; /* Borda sutil */
+}
+
+body.dark-mode .filter-controls .export-button:hover:not(:disabled) {
+    background-color: #218838; /* Um verde um pouco mais escuro no hover */
+    border-color: #218838;
+}
+
+body.dark-mode .filter-controls .export-button:disabled {
+    background-color: #555; /* Cinza mais escuro para desabilitado no dark mode */
+    color: #bbb;
+    border-color: #666;
+}
+
+/* Garanta que os botões do header e filter-controls tenham um bom espaçamento */
+.header-controls button,
+.filter-controls button {
+    margin-left: 10px;
+}
+/* Responsividade */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    header p {
+        font-size: 1rem;
+    }
+    .header-controls, .filter-controls {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    /* Ajustes para botões e selects em telas pequenas */
+    select,
+    .filter-controls button, /* Incluí o botão de filtro */
+    .header-controls #themeToggleButton, /* Incluí o botão de modo escuro */
+    .header-controls .dashboard-button { /* Incluí o link voltar ao dashboard */
+        width: 100%;
+        max-width: 300px; /* Para não esticar demais em telas pequenas */
+        margin: 0 auto; /* Centralizar */
+    }
+    main {
+        padding: 20px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+    .chart-section {
+        padding: 10px;
+    }
+    canvas#graficoAnual {
+        height: 300px !important; /* Ajuste para telas menores */
+    }
+    .sugestao {
+        padding: 15px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px 10px;
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+    header p {
+        font-size: 0.9rem;
+    }
+    select,
+    .filter-controls button,
+    .header-controls #themeToggleButton,
+    .header-controls .dashboard-button {
+        padding: 8px 15px;
+        font-size: 0.95rem;
+    }
+    main {
+        padding: 15px;
+    }
+    canvas#graficoAnual {
+        height: 250px !important; /* Ainda menor em telas muito pequenas */
+    }
+    .sugestao {
+        font-size: 0.9rem;
+        padding: 12px 15px;
+    }
+}

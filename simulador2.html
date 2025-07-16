@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador AquaSense Pro - Envio de Parâmetros</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+    }
+    label {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, button {
+      padding: 10px;
+      margin-top: 5px;
+      width: 100%;
+      font-size: 1rem;
+    }
+    .success {
+      color: green;
+      margin-top: 10px;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Simulador de Envio de Dados - AquaSense Pro</h2>
+
+  <form id="formSimulador">
+    <label for="condutividade">Condutividade (µS/cm):</label>
+    <input type="number" step="0.01" name="condutividade" required>
+
+    <label for="temperatura">Temperatura (°C):</label>
+    <input type="number" step="0.1" name="temperatura" required>
+
+    <label for="oxigenio">Oxigênio Dissolvido (mg/L):</label>
+    <input type="number" step="0.01" name="oxigenio" required>
+
+    <label for="ph">pH:</label>
+    <input type="number" step="0.01" name="ph" required>
+
+    <label for="tanque_id">ID do Tanque:</label>
+    <input type="number" name="tanque_id" value="1" required>
+
+    <button type="submit">Enviar Dados</button>
+  </form>
+
+  <div id="respostaServidor"></div>
+
+  <script>
+    const form = document.getElementById('formSimulador');
+    const resposta = document.getElementById('respostaServidor');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const dados = new FormData(form);
+
+      const response = await fetch('receber_dados2.php', {
+        method: 'POST',
+        body: new URLSearchParams(dados)
+      });
+
+      const resultado = await response.json();
+      resposta.innerHTML = resultado.success
+        ? `<p class="success">✔️ ${resultado.message}</p>`
+        : `<p class="error">❌ ${resultado.message}</p>`;
+    });
+  </script>
+</body>
+</html>
